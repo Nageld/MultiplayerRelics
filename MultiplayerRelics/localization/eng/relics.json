@@ -1,3 +1,7 @@
 {
-  
+  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE": {
+    "title": "Oddly Resonating Stone",
+    "description": "At the start of each combat, foo.",
+    "flavor": "The stone resonates with the energy of the world around it, creating a soothing hum that can be heard by those who are attuned to it."
+  }
 }

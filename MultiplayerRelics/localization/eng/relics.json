@@ -1,7 +1,5 @@
 {
-  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE": {
-    "title": "Oddly Resonating Stone",
-    "description": "At the start of each combat, foo.",
-    "flavor": "The stone resonates with the energy of the world around it, creating a soothing hum that can be heard by those who are attuned to it."
-  }
+  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.title": "Oddly Resonating Stone",
+  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.flavor": "At the start of each combat, resonate with fellow stone holders to defend against the erosion of this world.",
+  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.description": "At the start of combat, gain Dexterity equal to number of relic holders."
 }

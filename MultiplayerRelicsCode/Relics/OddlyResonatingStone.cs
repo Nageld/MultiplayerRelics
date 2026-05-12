@@ -9,6 +9,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using BaseLib.Utils;
 using System.Threading;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace MultiplayerRelics.MultiplayerRelicsCode.Relics;
 
@@ -16,41 +19,32 @@ namespace MultiplayerRelics.MultiplayerRelicsCode.Relics;
 public class OddlyResonatingStone : MultiplayerRelicsRelic
 {
 
-
-  public override List<(string, string)>? Localization => new RelicLoc(
-    "Oddly Resonating Stone",
-    "At the start of each combat, foo.",
-    "The stone resonates with the energy of the world around it, creating a soothing hum that can be heard by those who are attuned to it."
-  );
-
   public override RelicRarity Rarity => RelicRarity.Common;
-
-  private static volatile int ownedCount = 0;
-
-  public override Task AfterObtained() => Task.Run(() =>
-  {
-    MainFile.Logger.Info("Owned count: " + ownedCount + " player who obtained it: " + this.Owner.NetId);
-    Interlocked.Increment(ref ownedCount);
-  });
-
-  public override Task AfterRemoved() => Task.Run(() =>
-  {
-    MainFile.Logger.Info("Owned count: " + ownedCount + " player who removed it: " + this.Owner.NetId);
-    Interlocked.Decrement(ref ownedCount);
-  });
-
-  public override bool ShowCounter => true;
-  public override int DisplayAmount => ownedCount;
+  
+  protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(1M)];
 
   public override async Task AfterRoomEntered(AbstractRoom room)
   {
-    OddlyResonatingStone oddlyResonatingStone = this;
     if (!(room is CombatRoom))
       return;
-    oddlyResonatingStone.Flash();
-    MainFile.Logger.Info("Applying dexterity for " + ownedCount + " stacks, player: " + oddlyResonatingStone.Owner.NetId);
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-    DexterityPower dexterityPower = await PowerCmd.Apply<DexterityPower>((PlayerChoiceContext)new ThrowingPlayerChoiceContext(), oddlyResonatingStone.Owner.Creature, oddlyResonatingStone.DynamicVars.Dexterity.BaseValue * ownedCount, oddlyResonatingStone.Owner.Creature, (CardModel)null);
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+    Flash();
+    ICombatState? combatState = Owner.Creature.CombatState;
+    int owners = 0;
+    
+    if (combatState is not null)
+    {
+
+      foreach (Creature creature in (IEnumerable<Creature>)combatState.PlayerCreatures
+                 .Where<Creature>((Func<Creature, bool>)(c => c.IsAlive)).ToList<Creature>())
+      {
+        if (creature.Player?.GetRelic<OddlyResonatingStone>() != null)
+        {
+          owners++;
+        }
+      }
+    }
+    
+    MainFile.Logger.Info("Applying dexterity for " + owners + " stacks, player: " + Owner.NetId);
+    await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, DynamicVars.Dexterity.BaseValue * owners, Owner.Creature, null);
   }
 }

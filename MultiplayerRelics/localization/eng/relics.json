@@ -1,5 +1,7 @@
 {
   "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.title": "Oddly Resonating Stone",
   "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.flavor": "At the start of each combat, resonate with fellow stone holders to defend against the erosion of this world.",
-  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.description": "At the start of combat, gain Dexterity equal to number of relic holders."
+  "MULTIPLAYERRELICS-WELCOME_MAT.title": "Welcome Mat",
+  "MULTIPLAYERRELICS-WELCOME_MAT.description": "The first card you play each combat is played for all allies.",
+  "MULTIPLAYERRELICS-WELCOME_MAT.flavor": ""
 }

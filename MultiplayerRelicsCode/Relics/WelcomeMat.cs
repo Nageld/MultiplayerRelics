@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MultiplayerRelics.MultiplayerRelicsCode.Utils;
@@ -50,7 +51,7 @@ public class WelcomeMat() : MultiplayerRelicsRelic
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         var card = cardPlay.Card;
-        
+
         if (UsedThisCombat) return;
         if (card.IsDupe) return;
         if (card.Owner != Owner) return; 
@@ -63,11 +64,8 @@ public class WelcomeMat() : MultiplayerRelicsRelic
         var target = cardPlay.Target;
         foreach (var ally in allies)
         {
-            var copy = Owner.Creature.CombatState?.CloneCard(card);
-            copy.IsDupe = true;
-            Owner.RunState.RemoveCard(copy);
-            if (ally.Player != null) Owner.Creature.CombatState?.AddCard(copy, ally.Player);
-
+            var copy = card.CreateDupe();
+            copy._owner = ally.Player;
 
             Creature? copyTarget = card.TargetType switch
             {

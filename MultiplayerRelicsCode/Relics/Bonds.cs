@@ -31,8 +31,11 @@ public class Bonds() : MultiplayerRelicsRelic
         if (allies.Count == 0)
             return;
 
-        List<CardPoolModel> list = Owner.UnlockState.CardPools.ToList();
-        
+        var multiplayerCards = Owner.UnlockState.CardPools
+            .SelectMany(c => c.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint))
+            .Where(c => c.MultiplayerConstraint == CardMultiplayerConstraint.MultiplayerOnly)
+            .ToList();
+
         Flash();
         foreach (var ally in allies)
         {
@@ -40,10 +43,7 @@ public class Bonds() : MultiplayerRelicsRelic
             
             CardModel? cardModel = CardFactory.GetDistinctForCombat(
                 ally.Player,
-                from c in list.SelectMany(c =>
-                    c.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint))
-                where c.MultiplayerConstraint == CardMultiplayerConstraint.MultiplayerOnly
-                select c,
+                multiplayerCards,
                 1,
                 Owner.RunState.Rng.CombatCardGeneration
             ).FirstOrDefault();

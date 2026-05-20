@@ -1,5 +1,8 @@
 {
   "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.title": "Oddly Resonating Stone",
   "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.flavor": "At the start of each combat, resonate with fellow stone holders to defend against the erosion of this world.",
-  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.description": "At the start of combat, gain Dexterity equal to number of relic holders."
+  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.description": "At the start of combat, gain Dexterity equal to number of relic holders.",
+  "MULTIPLAYERRELICS-BONDS.title": "Bonds",
+  "MULTIPLAYERRELICS-BONDS.description": "At the start of each combat, shuffle a random multiplayer card into each player's [gold]Draw Pile[/gold].",
+  "MULTIPLAYERRELICS-BONDS.flavor": ""
 }

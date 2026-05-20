@@ -3,7 +3,7 @@
   "localizationBase": "MultiplayerRelics/localization/eng",
   "presets": [
     {
-      "id": "card",
+      "id": "relics",
       "markers": [
         "MultiplayerRelicsRelic"
       ],
@@ -21,6 +21,29 @@
         {
           "name": "flavor",
           "file": "relics.json",
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "enchantments",
+      "markers": [
+        "CustomEnchantmentModel"
+      ],
+      "fields": [
+        {
+          "name": "title",
+          "file": "enchantments.json",
+          "optional": false
+        },
+        {
+          "name": "description",
+          "file": "enchantments.json",
+          "optional": false
+        },
+        {
+          "name": "extraCardText",
+          "file": "enchantments.json",
           "optional": false
         }
       ]

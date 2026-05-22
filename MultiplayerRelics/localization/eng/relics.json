@@ -4,5 +4,8 @@
   "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.description": "At the start of combat, gain Dexterity equal to number of relic holders.",
   "MULTIPLAYERRELICS-PERISCOPE.title": "Periscope",
   "MULTIPLAYERRELICS-PERISCOPE.description": "Upon pickup, obtain an additional copy of a card in another players [gold]Deck[/gold].",
-  "MULTIPLAYERRELICS-PERISCOPE.flavor": ""
+  "MULTIPLAYERRELICS-PERISCOPE.flavor": "",
+  "MULTIPLAYERRELICS-BONDS.title": "Bonds",
+  "MULTIPLAYERRELICS-BONDS.description": "At the start of each combat, shuffle a random multiplayer card into each player's [gold]Draw Pile[/gold].",
+  "MULTIPLAYERRELICS-BONDS.flavor": ""
 }

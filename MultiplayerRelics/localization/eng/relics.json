@@ -1,7 +1,7 @@
 {
   "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.title": "Oddly Resonating Stone",
-  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.flavor": "At the start of each combat, resonate with fellow stone holders to defend against the erosion of this world.",
-  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.description": "At the start of combat, gain Dexterity equal to number of relic holders.",
+  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.flavor": "",
+  "MULTIPLAYERRELICS-ODDLY_RESONATING_STONE.description": "At the start of combat, gain Dexterity equal to number of players with this relic.",
   "MULTIPLAYERRELICS-KILN_OF_FRIENDSHIP.title": "Kiln Of Friendship",
   "MULTIPLAYERRELICS-KILN_OF_FRIENDSHIP.description": "Upon pickup, [gold]Enchant[/gold] up to [blue]{Cards}[/blue] {Cards:plural:card|cards} with [purple]Fired-Up[/purple]. ",
   "MULTIPLAYERRELICS-KILN_OF_FRIENDSHIP.flavor": "",
@@ -16,5 +16,8 @@
   "MULTIPLAYERRELICS-PERISCOPE.flavor": "",
   "MULTIPLAYERRELICS-BONDS.title": "Bonds",
   "MULTIPLAYERRELICS-BONDS.description": "At the start of each combat, shuffle a random multiplayer card into each player's [gold]Draw Pile[/gold].",
-  "MULTIPLAYERRELICS-BONDS.flavor": ""
+  "MULTIPLAYERRELICS-BONDS.flavor": "",
+  "MULTIPLAYERRELICS-SHARED_HAMMERS.title": "Shared Hammers",
+  "MULTIPLAYERRELICS-SHARED_HAMMERS.description": "After you smith, upgrade a random card in all players Decks",
+  "MULTIPLAYERRELICS-SHARED_HAMMERS.flavor": ""
 }

@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace MultiplayerRelics.MultiplayerRelicsCode.Enchantments;
 
-public sealed class FiredUp : CustomEnchantmentModel
+public sealed class FiredUp : MultiplayerEnchantment
 {
     public override bool CanEnchantCardType(CardType cardType) => true;
 

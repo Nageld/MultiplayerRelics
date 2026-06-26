@@ -19,5 +19,8 @@
   "MULTIPLAYERRELICS-BONDS.flavor": "",
   "MULTIPLAYERRELICS-SHARED_HAMMERS.title": "Shared Hammers",
   "MULTIPLAYERRELICS-SHARED_HAMMERS.description": "After you smith, upgrade a random card in all players Decks",
-  "MULTIPLAYERRELICS-SHARED_HAMMERS.flavor": ""
+  "MULTIPLAYERRELICS-SHARED_HAMMERS.flavor": "",
+  "MULTIPLAYERRELICS-GOODIE_BAG.title": "Goodie Bag",
+  "MULTIPLAYERRELICS-GOODIE_BAG.description": "At [gold]Rest Sites[/gold], gain the option to [gold]Gift[/gold] a card from your [gold]Deck[/gold] to another player.",
+  "MULTIPLAYERRELICS-GOODIE_BAG.flavor": ""
 }

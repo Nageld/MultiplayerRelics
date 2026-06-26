@@ -1,0 +1,5 @@
+{
+  "OPTION_MULTIPLAYERRELICS-GIFT_OPTION.name": "Gift",
+  "OPTION_MULTIPLAYERRELICS-GIFT_OPTION.description": "Give a card from your [gold]Deck[/gold] to {HasTarget:{Name}|another player}.",
+  "OPTION_MULTIPLAYERRELICS-GIFT_OPTION.descriptionDisabled": "[red]You need at least 1 removable card in your Deck.[/red]"
+}

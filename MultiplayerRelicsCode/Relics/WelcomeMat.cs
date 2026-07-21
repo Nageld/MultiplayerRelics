@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -47,15 +48,15 @@ public class WelcomeMat() : MultiplayerRelicsRelic
         Status = RelicStatus.Normal;
         return Task.CompletedTask;
     }
-    
+
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         var card = cardPlay.Card;
 
         if (UsedThisCombat) return;
         if (card.IsDupe) return;
-        if (card.Owner != Owner) return; 
-        
+        if (card.Owner != Owner) return;
+
         UsedThisCombat = true;
         Flash();
         Status = RelicStatus.Normal;
@@ -64,22 +65,12 @@ public class WelcomeMat() : MultiplayerRelicsRelic
         var target = cardPlay.Target;
         foreach (var ally in allies)
         {
-            var copy = card.CreateDupe();
-            copy._owner = ally.Player;
+            var combatCopy = card.CreateCloneForPlayer(ally.Player);
 
-            Creature? copyTarget = card.TargetType switch
-            {
-                TargetType.AnyEnemy => (target != null && target.IsAlive && target.IsHittable)
-                    ? target
-                    : null, 
-                TargetType.AnyAlly  => null,
-                _                   => target
-            };
-            await CardCmd.AutoPlay(context, copy, copyTarget);
+            combatCopy.EnergyCost.SetThisCombat(0);
+
+            await CardPileCmd.AddGeneratedCardToCombat(combatCopy, PileType.Hand, ally.Player, CardPilePosition.Random);
+
         }
-            
-
     }
-
-
 }

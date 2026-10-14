@@ -62,10 +62,9 @@ public class WelcomeMat() : MultiplayerRelicsRelic
 
         var allies = Shortcuts.GetAllies(Owner, false);
         var target = cardPlay.Target;
-        foreach (var ally in allies)
+        foreach (var ally in allies!)
         {
-            var copy = card.CreateDupe();
-            copy._owner = ally.Player;
+            var copy = card.CreateDupe(ally.Player!);
 
             Creature? copyTarget = card.TargetType switch
             {
